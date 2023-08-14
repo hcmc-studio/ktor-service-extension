@@ -1,7 +1,11 @@
 package studio.hcmc.ktor.service
 
 interface IdProducerService<ID> {
-    suspend fun onIdAdded(id: ID)
+    val delegate: Delegate<ID>
 
-    suspend fun onIdRemoved(id: ID)
+    interface Delegate<ID> {
+        suspend fun onIdAdded(id: ID)
+
+        suspend fun onIdRemoved(id: ID)
+    }
 }
