@@ -22,7 +22,7 @@ publishing {
     publications {
         create<MavenPublication>("maven") {
             groupId = "studio.hcmc"
-            artifactId = "ktor-plugin-accepted-at"
+            artifactId = project.name
             version = project_version
             from(components["java"])
         }
