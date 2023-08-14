@@ -1,22 +1,33 @@
+val project_version: String by project
+val jdk_version: String by project
+
 plugins {
-    kotlin("jvm") version "1.9.0"
+    kotlin("jvm")
+    id("maven-publish")
 }
 
 group = "studio.hcmc"
-version = "1.0-SNAPSHOT"
+version = project_version
 
 repositories {
     mavenCentral()
-}
-
-dependencies {
-    testImplementation(kotlin("test"))
-}
-
-tasks.test {
-    useJUnitPlatform()
+    maven { setUrl("https://jitpack.io") }
 }
 
 kotlin {
-    jvmToolchain(8)
+    jvmToolchain(jdk_version.toInt())
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = "studio.hcmc"
+            artifactId = "ktor-plugin-accepted-at"
+            version = project_version
+            from(components["java"])
+        }
+    }
+}
+
+dependencies {
 }
