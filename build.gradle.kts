@@ -1,5 +1,6 @@
 val project_version: String by project
 val jdk_version: String by project
+val kafka_version: String by project
 
 plugins {
     kotlin("jvm")
@@ -30,4 +31,6 @@ publishing {
 }
 
 dependencies {
+    implementation("org.apache.kafka:kafka-clients:$kafka_version")
+    implementation("org.apache.kafka:kafka-streams:$kafka_version")
 }
