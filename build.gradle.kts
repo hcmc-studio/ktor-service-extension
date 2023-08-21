@@ -1,5 +1,6 @@
 val project_version: String by project
 val jdk_version: String by project
+val hcmc_extension_version: String by project
 val kafka_version: String by project
 
 plugins {
@@ -42,6 +43,8 @@ publishing {
 }
 
 dependencies {
+    implementation("com.github.hcmc-studio:kotlin-protocol-extension:$hcmc_extension_version")
+
     implementation("org.apache.kafka:kafka-clients:$kafka_version")
     implementation("org.apache.kafka:kafka-streams:$kafka_version")
 }
