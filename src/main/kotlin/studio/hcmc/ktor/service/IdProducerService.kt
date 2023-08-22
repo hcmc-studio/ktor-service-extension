@@ -7,5 +7,11 @@ interface IdProducerService<ID> {
         suspend fun onIdAdded(id: ID)
 
         suspend fun onIdRemoved(id: ID)
+
+        class Empty<ID> : Delegate<ID> {
+            override suspend fun onIdAdded(id: ID) = Unit
+
+            override suspend fun onIdRemoved(id: ID) = Unit
+        }
     }
 }
