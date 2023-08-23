@@ -3,6 +3,7 @@ package studio.hcmc.ktor.service
 import org.apache.kafka.clients.producer.KafkaProducer
 import org.apache.kafka.clients.producer.ProducerRecord
 import org.apache.kafka.clients.producer.RecordMetadata
+import studio.hcmc.ktor.service.IdProducer
 import java.util.concurrent.Future
 
 class IdProducer<ID, V>(
